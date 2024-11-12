@@ -5,9 +5,9 @@
     "description": "API documentation for movie routes",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse-341-project2-obur.onrender.com",
   "basePath": "/",
-  "schemes": "http",
+  "schemes": "https",
   "paths": {
     "/movies/": {
       "get": {

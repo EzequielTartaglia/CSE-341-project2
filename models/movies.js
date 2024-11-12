@@ -7,9 +7,9 @@ module.exports = (mongoose) => {
         title: { type: String, required: true, unique: true },
         description: { type: String },
         release_date: { type: Date, required: true },
-        movie_gender_id: { type: String, required: true },
-        director_id: { type: String, required: true },
-        total_minutes: { type: Date, required: true },
+        movie_gender_id: { type: Number, required: true },
+        director_id: { type: Number, required: true },
+        total_minutes: { type: Number, required: true },
       },
       { timestamps: true }
     )
