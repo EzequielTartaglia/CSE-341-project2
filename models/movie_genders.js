@@ -1,9 +1,8 @@
 module.exports = (mongoose) => {
   const MovieGender = mongoose.model(
-    'movie_genders',
+    'MovieGender', // Cambiar a 'MovieGender' para que coincida con el ref en el modelo de Movie
     mongoose.Schema(
       {
-        movie_gender_id: { type: mongoose.Schema.Types.ObjectId, required: true },
         name: { type: String, required: true, unique: true }
       },
       { timestamps: true }

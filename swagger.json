@@ -5,9 +5,9 @@
     "description": "API documentation for movie routes",
     "version": "1.0.0"
   },
-  "host": "cse-341-project2-obur.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
-  "schemes": "https",
+  "schemes": "http",
   "paths": {
     "/movies/": {
       "get": {
@@ -50,9 +50,6 @@
                   "example": "any"
                 },
                 "release_date": {
-                  "example": "any"
-                },
-                "movie_id": {
                   "example": "any"
                 },
                 "description": {
@@ -194,7 +191,7 @@
         }
       }
     },
-    "/movie_gender/": {
+    "/movie_genders/": {
       "get": {
         "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
         "parameters": [
@@ -224,9 +221,6 @@
               "properties": {
                 "name": {
                   "example": "any"
-                },
-                "movie_gender_id": {
-                  "example": "any"
                 }
               }
             }
@@ -245,7 +239,7 @@
         }
       }
     },
-    "/movie_gender/{movie_gender_id}": {
+    "/movie_genders/{movie_gender_id}": {
       "get": {
         "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
         "parameters": [

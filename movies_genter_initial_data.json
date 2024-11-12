@@ -1,27 +1,22 @@
 [
   {
-    "_id":{"$oid":"673354963dedfd839e5ff630"},
-    "name": "Science Fiction",
-    "description": "Movies that explore futuristic concepts, technology, and space travel."
+    "movie_gender_id": 1,
+    "name": "Science Fiction"
   },
   {
-    "_id":{"$oid":"673354963dedfd839e5ff631"},
-    "name": "Action",
-    "description": "Movies featuring high energy scenes, fights, and fast-paced sequences."
+    "movie_gender_id": 2,
+    "name": "Action"
   },
   {
-    "_id":{"$oid":"673354963dedfd839e5ff632"},
-    "name": "Drama",
-    "description": "Movies that focus on character development and emotional narratives."
+    "movie_gender_id": 3,
+    "name": "Drama"
   },
   {
-    "_id":{"$oid":"673354963dedfd839e5ff633"},
-    "name": "Crime",
-    "description": "Movies that center around criminal activities and law enforcement."
+    "movie_gender_id": 4,
+    "name": "Crime"
   },
   {
-    "_id":{"$oid":"673354963dedfd839e5ff634"},
-    "name": "Comedy",
-    "description": "Movies designed to entertain and amuse with humor."
+    "movie_gender_id": 5,
+    "name": "Comedy"
   }
 ]

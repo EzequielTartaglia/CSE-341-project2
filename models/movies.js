@@ -1,5 +1,3 @@
-const MovieGender = require('./movieGender'); 
-
 module.exports = (mongoose) => {
   const Movie = mongoose.model(
     "movies",
@@ -10,8 +8,8 @@ module.exports = (mongoose) => {
         description: { type: String },
         release_date: { type: Date, required: true },
         movie_gender_id: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "MovieGender",
+          type: Number,
+          required: true,
         },
         director_id: { type: Number, required: true },
         total_minutes: { type: Number, required: true },
