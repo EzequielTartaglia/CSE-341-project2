@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node swagger.js && nodemon server.js"
+    "start": "node swagger.js && nodemon server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "swagger": "node ./swagger.js"
   },
   "keywords": [],
   "author": "Ezequiel Matias Tartaglia",
@@ -16,7 +20,8 @@
     "express": "^4.17.1",
     "mongoose": "^6.0.14",
     "nodemon": "^2.0.15",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "validatorjs": "^3.22.1"
   },
   "devDependencies": {
     "swagger-autogen": "^2.23.7"

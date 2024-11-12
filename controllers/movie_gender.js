@@ -3,7 +3,7 @@ const MovieGender = db.movie_genders;
 
 const apiKey = process.env.SWAGGER_API_KEY;
 
-exports.create = (req, res) => {
+exports.createMovieGender = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
   */
@@ -34,7 +34,7 @@ exports.create = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
+exports.getAll = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
   */
@@ -62,7 +62,7 @@ exports.findAll = (req, res) => {
 };
 
 // Find a single MovieGender by movie_gender_id
-exports.findOne = (req, res) => {
+exports.getSingle = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
   */
@@ -90,7 +90,7 @@ exports.findOne = (req, res) => {
 };
 
 // Update a MovieGender by the id in the request
-exports.update = (req, res) => {
+exports.updateMovieGender = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
   */
@@ -146,7 +146,7 @@ exports.update = (req, res) => {
 
 
 // Delete a MovieGender with the specified id in the request
-exports.delete = (req, res) => {
+exports.deleteMovieGender = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
   */

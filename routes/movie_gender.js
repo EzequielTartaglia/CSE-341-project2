@@ -1,13 +1,15 @@
 const routes = require('express').Router();
-const movie_genders = require('../controllers/movie_gender.js');
+const movieGendersController = require('../controllers/movie_gender.js');
+const validation = require('../middleware/validate');
 
-routes.get('/', movie_genders.findAll);
-routes.get('/:movie_gender_id', movie_genders.findOne);
+router.get('/', movieGendersController.getAll);
 
-routes.post('/', movie_genders.create);
+router.get('/:movie_gender_id', movieGendersController.getSingle);
 
-routes.put('/:movie_gender_id', movie_genders.update);
+router.post('/', validation.saveMovieGender, movieGendersController.createMovieGender);
 
-routes.delete('/:movie_gender_id', movie_genders.delete)
+router.put('/:movie_gender_id', validation.saveMovieGender, movieGendersController.updateMovieGender);
+
+router.delete('/:movie_gender_id', movieGendersController.deleteMovieGender);
 
 module.exports = routes;
