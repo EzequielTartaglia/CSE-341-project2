@@ -1,5 +1,6 @@
 const db = require("../models");
 const Movie = db.movies;
+const MovieGender = db.movie_genders;
 
 const apiKey = process.env.SWAGGER_API_KEY;
 
