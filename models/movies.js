@@ -8,7 +8,7 @@ module.exports = (mongoose) => {
         description: { type: String },
         release_date: { type: Date, required: true },
         movie_gender_id: {
-          type: mongoose.Schema.Types.ObjectId, 
+          type: mongoose.Schema.Types.ObjectId,
           ref: "MovieGender",
         },
         director_id: { type: Number, required: true },
