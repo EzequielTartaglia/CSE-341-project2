@@ -60,18 +60,7 @@ exports.findAll = (req, res) => {
   */
   console.log(req.header("apiKey"));
   if (req.header("apiKey") === apiKey) {
-    Movie.find(
-      {},
-      {
-        movie_id: 1,
-        title: 1,
-        description: 1,
-        movie_gender_id: 1,
-        release_date: 1,
-        director_id: 1,
-        total_minutes: 1,
-      }
-    )
+    Movie.find({})
       .populate("movie_gender_id", "name")
       .then((data) => {
         res.send(data);
