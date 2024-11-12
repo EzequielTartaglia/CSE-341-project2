@@ -5,9 +5,9 @@
     "description": "API documentation for movie routes",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse-341-project2-obur.onrender.com",
   "basePath": "/",
-  "schemes": "http",
+  "schemes": "https",
   "paths": {
     "/movies/": {
       "get": {
@@ -50,9 +50,6 @@
                   "example": "any"
                 },
                 "release_date": {
-                  "example": "any"
-                },
-                "movie_id": {
                   "example": "any"
                 },
                 "description": {
@@ -136,6 +133,9 @@
                   "example": "any"
                 },
                 "total_minutes": {
+                  "example": "any"
+                },
+                "release_date": {
                   "example": "any"
                 }
               }
