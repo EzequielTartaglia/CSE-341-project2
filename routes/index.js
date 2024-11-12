@@ -1,9 +1,7 @@
 const routes = require('express').Router();
-const movie = require('./movie');
-const movie_gender = require('./movie_gender');
 
-routes.use('/movies', movie);
-routes.use('/movie_genders', movie_gender);
+routes.use('/movies', require('./movie'));
+routes.use('/movie_genders', require('./movie_gender'));
 
 routes.use(
   '/',

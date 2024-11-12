@@ -52,6 +52,9 @@
                 "release_date": {
                   "example": "any"
                 },
+                "movie_id": {
+                  "example": "any"
+                },
                 "description": {
                   "example": "any"
                 }
@@ -66,6 +69,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -74,29 +80,18 @@
     },
     "/movies/{movie_id}": {
       "get": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "parameters": [
           {
             "name": "movie_id",
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "apiKey",
-            "in": "header",
-            "type": "string"
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       },
@@ -134,9 +129,6 @@
                 },
                 "total_minutes": {
                   "example": "any"
-                },
-                "release_date": {
-                  "example": "any"
                 }
               }
             }
@@ -154,6 +146,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -233,6 +228,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -307,6 +305,9 @@
           "404": {
             "description": "Not Found"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -339,6 +340,16 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
