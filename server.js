@@ -3,8 +3,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 const cors = require("cors");
 const app = express();
-
-const PORT = process.env.PORT || 8080;
+const port = process.env.PORT || 8083;
 
 app
   .use(cors())
@@ -38,6 +37,7 @@ db.mongoose
     process.exit();
   });
 
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
