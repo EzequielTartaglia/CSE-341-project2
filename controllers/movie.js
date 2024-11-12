@@ -49,8 +49,7 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Movie.",
+        message: err.message || "Some error occurred while creating the Movie.",
       });
     });
 };
@@ -73,6 +72,7 @@ exports.findAll = (req, res) => {
         total_minutes: 1,
       }
     )
+      .populate("movie_gender_id", "name")
       .then((data) => {
         res.send(data);
       })
@@ -96,6 +96,7 @@ exports.findOne = (req, res) => {
   const movie_id = req.params.movie_id;
   if (req.header("apiKey") === apiKey) {
     Movie.findOne({ _id: movie_id })
+      .populate("movie_gender_id", "name")
       .then((data) => {
         if (!data) {
           res
@@ -137,10 +138,13 @@ exports.update = (req, res) => {
     // Check which fields are present in the request body and add them to updateFields
     if (req.body.title) updateFields.title = req.body.title;
     if (req.body.description) updateFields.lastName = req.body.description;
-    if (req.body.movie_gender_id) updateFields.movie_gender_id = req.body.movie_gender_id;
+    if (req.body.movie_gender_id)
+      updateFields.movie_gender_id = req.body.movie_gender_id;
     if (req.body.director_id) updateFields.director_id = req.body.director_id;
-    if (req.body.total_minutes) updateFields.total_minutes = req.body.total_minutes;
-    if (req.body.release_date) updateFields.release_date = req.body.release_date;
+    if (req.body.total_minutes)
+      updateFields.total_minutes = req.body.total_minutes;
+    if (req.body.release_date)
+      updateFields.release_date = req.body.release_date;
 
     // If there are no fields to update, return a 400 error
     if (Object.keys(updateFields).length === 0) {
@@ -174,7 +178,6 @@ exports.update = (req, res) => {
     });
   }
 };
-
 
 // Delete a Movie with the specified id in the request
 exports.delete = (req, res) => {
