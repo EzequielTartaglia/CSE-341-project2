@@ -1,0 +1,27 @@
+[
+  {
+    "movie_gender_id": 1,
+    "name": "Science Fiction",
+    "description": "Movies that explore futuristic concepts, technology, and space travel."
+  },
+  {
+    "movie_gender_id": 2,
+    "name": "Action",
+    "description": "Movies featuring high energy scenes, fights, and fast-paced sequences."
+  },
+  {
+    "movie_gender_id": 3,
+    "name": "Drama",
+    "description": "Movies that focus on character development and emotional narratives."
+  },
+  {
+    "movie_gender_id": 4,
+    "name": "Crime",
+    "description": "Movies that center around criminal activities and law enforcement."
+  },
+  {
+    "movie_gender_id": 5,
+    "name": "Comedy",
+    "description": "Movies designed to entertain and amuse with humor."
+  }
+]

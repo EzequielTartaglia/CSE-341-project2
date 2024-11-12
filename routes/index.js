@@ -3,7 +3,7 @@ const movie = require('./movie');
 const movie_gender = require('./movie_gender');
 
 routes.use('/movies', movie);
-routes.use('/movie_gender', movie_gender);
+routes.use('/movie_genders', movie_gender);
 
 routes.use(
   '/',
