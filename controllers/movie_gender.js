@@ -1,5 +1,5 @@
 const db = require("../models");
-const Movie = db.movies;
+const MovieGender = db.movie_genders;
 
 const apiKey = process.env.SWAGGER_API_KEY;
 
@@ -40,7 +40,7 @@ exports.findAll = (req, res) => {
   */
   console.log(req.header("apiKey"));
   if (req.header("apiKey") === apiKey) {
-    Movie.find(
+    MovieGender.find(
       {},
       {
         movie_gender_id: 1,
@@ -61,7 +61,7 @@ exports.findAll = (req, res) => {
   }
 };
 
-// Find a single Movie by movie_id
+// Find a single MovieGender by movie_gender_id
 exports.findOne = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
@@ -69,7 +69,7 @@ exports.findOne = (req, res) => {
 
   const movie_gender_id = req.params.movie_gender_id;
   if (req.header("apiKey") === apiKey) {
-    Contact.findOne({ _id: movie_gender_id })
+    MovieGender.findOne({ _id: movie_gender_id })
       .then((data) => {
         if (!data) {
           res
@@ -89,7 +89,7 @@ exports.findOne = (req, res) => {
   }
 };
 
-// Update a Movie by the id in the request
+// Update a MovieGender by the id in the request
 exports.update = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
@@ -118,8 +118,8 @@ exports.update = (req, res) => {
       });
     }
 
-    // Update the movie with the specified fields
-    Movie.findByIdAndUpdate(movie_id, updateFields, {
+    // Update the movie gender with the specified fields
+    Movie.findByIdAndUpdate(movie_gender_id, updateFields, {
       new: true,
       useFindAndModify: false,
     })
@@ -145,7 +145,7 @@ exports.update = (req, res) => {
 };
 
 
-// Delete a Movie with the specified id in the request
+// Delete a MovieGender with the specified id in the request
 exports.delete = (req, res) => {
   /*
     #swagger.description = 'Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'

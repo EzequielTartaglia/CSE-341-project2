@@ -95,7 +95,7 @@ exports.findOne = (req, res) => {
 
   const movie_id = req.params.movie_id;
   if (req.header("apiKey") === apiKey) {
-    Contact.findOne({ _id: movie_id })
+    Movie.findOne({ _id: movie_id })
       .then((data) => {
         if (!data) {
           res
