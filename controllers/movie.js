@@ -33,7 +33,6 @@ exports.create = (req, res) => {
 
   // Create a Movie
   const movie = new Movie({
-    movie_id: req.body.movie_id,
     title: req.body.title,
     description: req.body.description,
     release_date: req.body.release_date,

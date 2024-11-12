@@ -17,7 +17,6 @@ exports.create = (req, res) => {
 
   // Create a MovieGender
   const movieGender = new MovieGender({
-    movie_gender_id: req.body.movie_gender_id,
     name: req.body.name,
   });
 
