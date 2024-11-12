@@ -1,6 +1,5 @@
 const db = require("../models");
 const Movie = db.movies;
-const MovieGender = db.movie_genders;
 
 const apiKey = process.env.SWAGGER_API_KEY;
 
@@ -61,7 +60,18 @@ exports.findAll = (req, res) => {
   */
   console.log(req.header("apiKey"));
   if (req.header("apiKey") === apiKey) {
-    Movie.find({})
+    Movie.find(
+      {},
+      {
+        movie_id: 1,
+        title: 1,
+        description: 1,
+        movie_gender_id: 1,
+        release_date: 1,
+        director_id: 1,
+        total_minutes: 1,
+      }
+    )
       .populate("movie_gender_id", "name")
       .then((data) => {
         res.send(data);
@@ -77,7 +87,6 @@ exports.findAll = (req, res) => {
   }
 };
 
-
 // Find a single Movie by movie_id
 exports.findOne = (req, res) => {
   /*
@@ -87,18 +96,14 @@ exports.findOne = (req, res) => {
   const movie_id = req.params.movie_id;
   if (req.header("apiKey") === apiKey) {
     Movie.findOne({ _id: movie_id })
-      .populate("movie_gender_id", "name")  // Obtener solo el campo "name" del género
+      .populate("movie_gender_id", "name")
       .then((data) => {
         if (!data) {
-          res.status(404).send({ message: "Not found Movie with movie_id " + movie_id });
+          res
+            .status(404)
+            .send({ message: "Not found Movie with movie_id " + movie_id });
         } else {
-          // Agregar el campo "gender_name_fk" al resultado
-          const movieData = {
-            ...data.toObject(),
-            gender_name_fk: data.movie_gender_id ? data.movie_gender_id.name : null, // Si no hay género, asignar null
-          };
-
-          res.send(movieData);  // Enviar el objeto con el nuevo campo
+          res.send(data);
         }
       })
       .catch((err) => {
