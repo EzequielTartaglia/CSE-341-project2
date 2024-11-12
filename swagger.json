@@ -52,6 +52,9 @@
                 "release_date": {
                   "example": "any"
                 },
+                "movie_id": {
+                  "example": "any"
+                },
                 "description": {
                   "example": "any"
                 }
@@ -133,9 +136,6 @@
                   "example": "any"
                 },
                 "total_minutes": {
-                  "example": "any"
-                },
-                "release_date": {
                   "example": "any"
                 }
               }
