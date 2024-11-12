@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const movieGendersController = require('../controllers/movie_genders.js');
+const movieGendersController = require('../controllers/movie_genders');
 const validation = require('../middleware/validate');
 
 router.get('/', movieGendersController.getAll);
