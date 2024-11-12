@@ -9,7 +9,7 @@ const doc = {
     description: 'API documentation for movie routes'
   },
   host: host,
-  schemes: 'http'
+  schemes: isProduction ? 'https' : 'http'
 };
 
 const outputFile = './swagger.json';
