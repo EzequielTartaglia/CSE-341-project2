@@ -61,14 +61,18 @@ exports.findAll = (req, res) => {
   console.log(req.header("apiKey"));
   if (req.header("apiKey") === apiKey) {
     Movie.find({})
-      .populate("movie_gender_id", "name")
+      .populate("movie_gender_id", "name")  
       .then((data) => {
-        res.send(data);
+        const mappedData = data.map((movie) => ({
+          ...movie.toObject(),
+          gender_name_fk: movie.movie_gender_id ? movie.movie_gender_id.name : null,
+        }));
+        
+        res.send(mappedData);
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving movies.",
+          message: err.message || "Some error occurred while retrieving movies.",
         });
       });
   } else {
