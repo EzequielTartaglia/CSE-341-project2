@@ -1,3 +1,5 @@
+const MovieGender = require('./movieGender'); 
+
 module.exports = (mongoose) => {
   const Movie = mongoose.model(
     "movies",

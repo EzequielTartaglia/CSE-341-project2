@@ -62,24 +62,21 @@ exports.findAll = (req, res) => {
   console.log(req.header("apiKey"));
   if (req.header("apiKey") === apiKey) {
     Movie.find({})
-      .populate("movie_gender_id", "name")  
+      .populate("movie_gender_id", "name")
       .then((data) => {
-        const mappedData = data.map((movie) => ({
-          ...movie.toObject(),
-          gender_name_fk: movie.movie_gender_id ? movie.movie_gender_id.name : null,
-        }));
-        
-        res.send(mappedData);
+        res.send(data);
       })
       .catch((err) => {
         res.status(500).send({
-          message: err.message || "Some error occurred while retrieving movies.",
+          message:
+            err.message || "Some error occurred while retrieving movies.",
         });
       });
   } else {
     res.send("Invalid apiKey, please read the documentation.");
   }
 };
+
 
 // Find a single Movie by movie_id
 exports.findOne = (req, res) => {
