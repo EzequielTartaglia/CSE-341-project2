@@ -1,35 +1,34 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Movies API",
-    "description": "API documentation for movie routes",
+    "title": "My API",
+    "description": "Temple API",
     "version": "1.0.0"
   },
-  "host": "cse-341-project2-obur.onrender.com",
+  "host": "cse341-instructor.herokuapp.com",
   "basePath": "/",
-  "schemes": "https",
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/movies/": {
       "get": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
-        "parameters": [
-          {
-            "name": "apiKey",
-            "in": "header",
-            "type": "string"
-          }
+        "description": "",
+        "produces": [
+          "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
       "post": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -40,6 +39,12 @@
                 "title": {
                   "example": "any"
                 },
+                "description": {
+                  "example": "any"
+                },
+                "release_date": {
+                  "example": "any"
+                },
                 "movie_gender_id": {
                   "example": "any"
                 },
@@ -48,26 +53,14 @@
                 },
                 "total_minutes": {
                   "example": "any"
-                },
-                "release_date": {
-                  "example": "any"
-                },
-                "movie_id": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
                 }
               }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
+          "201": {
+            "description": "Created"
           },
           "412": {
             "description": "Precondition Failed"
@@ -81,6 +74,9 @@
     "/movies/{movie_id}": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "movie_id",
@@ -90,23 +86,21 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
       "put": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "parameters": [
           {
             "name": "movie_id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "apiKey",
-            "in": "header",
             "type": "string"
           },
           {
@@ -119,6 +113,9 @@
                   "example": "any"
                 },
                 "description": {
+                  "example": "any"
+                },
+                "release_date": {
                   "example": "any"
                 },
                 "movie_gender_id": {
@@ -135,17 +132,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "412": {
             "description": "Precondition Failed"
@@ -156,29 +147,21 @@
         }
       },
       "delete": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "parameters": [
           {
             "name": "movie_id",
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "apiKey",
-            "in": "header",
-            "type": "string"
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -188,25 +171,22 @@
     },
     "/movie_genders/": {
       "get": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
-        "parameters": [
-          {
-            "name": "apiKey",
-            "in": "header",
-            "type": "string"
-          }
+        "description": "",
+        "produces": [
+          "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
       "post": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -222,11 +202,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
+          "201": {
+            "description": "Created"
           },
           "412": {
             "description": "Precondition Failed"
@@ -237,19 +214,17 @@
         }
       }
     },
-    "/movie_genders/{movie_gender_id}": {
+    "/movie_genders/{id}": {
       "get": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "movie_gender_id",
+            "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "apiKey",
-            "in": "header",
             "type": "string"
           }
         ],
@@ -257,26 +232,18 @@
           "200": {
             "description": "OK"
           },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
       "put": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "parameters": [
           {
-            "name": "movie_gender_id",
+            "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "apiKey",
-            "in": "header",
             "type": "string"
           },
           {
@@ -293,17 +260,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "412": {
             "description": "Precondition Failed"
@@ -314,42 +275,24 @@
         }
       },
       "delete": {
-        "description": "Api key needed -> Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "parameters": [
           {
-            "name": "movie_gender_id",
+            "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "apiKey",
-            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
           }
         }
       }

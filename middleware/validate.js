@@ -1,6 +1,5 @@
 const validator = require("../helpers/validate");
 
-//Movie 
 const saveMovie = (req, res, next) => {
   const validationRule = {
     title: "title|string|unique",
@@ -23,25 +22,24 @@ const saveMovie = (req, res, next) => {
   });
 };
 
-//MovieGender
 const saveMovieGender = (req, res, next) => {
-  const validationRule = {
-    name: "title|string|unique",
+    const validationRule = {
+      name: "title|string|unique",
+    };
+    validator(req.body, validationRule, {}, (err, status) => {
+      if (!status) {
+        res.status(412).send({
+          success: false,
+          message: "Validation failed",
+          data: err,
+        });
+      } else {
+        next();
+      }
+    });
   };
-  validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) {
-      res.status(412).send({
-        success: false,
-        message: "Validation failed",
-        data: err,
-      });
-    } else {
-      next();
-    }
-  });
-};
 
 module.exports = {
   saveMovie,
-  saveMovieGender,
+  saveMovieGender
 };

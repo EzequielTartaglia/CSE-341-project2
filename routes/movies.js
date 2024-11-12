@@ -1,5 +1,7 @@
-const routes = require('express').Router();
-const moviesController = require('../controllers/movie.js');
+const express = require('express');
+const router = express.Router();
+
+const moviesController = require('../controllers/movies.js');
 const validation = require('../middleware/validate');
 
 router.get('/', moviesController.getAll);
@@ -12,4 +14,4 @@ router.put('/:movie_id', validation.saveMovie, moviesController.updateMovie);
 
 router.delete('/:movie_id', moviesController.deleteMovie);
 
-module.exports = routes;
+module.exports = router;
