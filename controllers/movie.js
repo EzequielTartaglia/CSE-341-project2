@@ -89,14 +89,18 @@ exports.findOne = (req, res) => {
   const movie_id = req.params.movie_id;
   if (req.header("apiKey") === apiKey) {
     Movie.findOne({ _id: movie_id })
-      .populate("movie_gender_id", "name")
+      .populate("movie_gender_id", "name")  // Obtener solo el campo "name" del género
       .then((data) => {
         if (!data) {
-          res
-            .status(404)
-            .send({ message: "Not found Movie with movie_id " + movie_id });
+          res.status(404).send({ message: "Not found Movie with movie_id " + movie_id });
         } else {
-          res.send(data);
+          // Agregar el campo "gender_name_fk" al resultado
+          const movieData = {
+            ...data.toObject(),
+            gender_name_fk: data.movie_gender_id ? data.movie_gender_id.name : null, // Si no hay género, asignar null
+          };
+
+          res.send(movieData);  // Enviar el objeto con el nuevo campo
         }
       })
       .catch((err) => {
