@@ -2,7 +2,7 @@ const validator = require("../helpers/validate");
 
 const saveMovie = (req, res, next) => {
   const validationRule = {
-    title: "title|string|unique",
+    title: "string|unique",
     description: "string",
     release_date: "date|email",
     movie_gender_id: "required|number",
