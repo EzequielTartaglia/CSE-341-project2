@@ -9,7 +9,7 @@ const doc = {
     description: 'My API'
   },
   host: host,
-  schemes: ['https']
+  schemes: ['https','http']
 };
 
 const outputFile = './swagger.json';

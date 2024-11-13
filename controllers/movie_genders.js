@@ -37,7 +37,9 @@ const getSingle = (req, res) => {
 
 const createMovieGender = async (req, res) => {
   const movieGender = {
-    name: req.body.name  
+    movie_gender_id: req.body.movie_gender_id,
+    name: req.body.name,
+    description: req.body.description 
   };
   const response = await mongodb.getDb().db().collection('movie_genders').insertOne(movieGender);
   if (response.acknowledged) {
@@ -52,10 +54,13 @@ const updateMovieGender = async (req, res) => {
     res.status(400).json('Must use a valid movie id to update a movie gender.');
   }
   const movieGenderId = new ObjectId(req.params.id);
-  // be aware of updateOne if you only want to update specific fields
+
   const movieGender = {
-    name: req.body.name 
+    movie_gender_id: req.body.movie_gender_id,
+    name: req.body.name,
+    description: req.body.description
   };
+
   const response = await mongodb
     .getDb()
     .db()

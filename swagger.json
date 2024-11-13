@@ -7,9 +7,7 @@
   },
   "host": "cse-341-project2-obur.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https","http"],
   "paths": {
     "/api-docs": {
       "get": {
@@ -139,11 +137,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "412": {
             "description": "Precondition Failed"
@@ -201,7 +202,13 @@
             "schema": {
               "type": "object",
               "properties": {
+                "movie_gender_id": {
+                  "example": "any"
+                },
                 "name": {
+                  "example": "any"
+                },
+                "description": {
                   "example": "any"
                 }
               }
@@ -259,7 +266,13 @@
             "schema": {
               "type": "object",
               "properties": {
+                "movie_gender_id": {
+                  "example": "any"
+                },
                 "name": {
+                  "example": "any"
+                },
+                "description": {
                   "example": "any"
                 }
               }
