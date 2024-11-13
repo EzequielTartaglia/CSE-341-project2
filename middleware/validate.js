@@ -24,7 +24,7 @@ const saveMovie = (req, res, next) => {
 
 const saveMovieGender = (req, res, next) => {
     const validationRule = {
-      name: "title|string|unique",
+      name: "string|unique",
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
