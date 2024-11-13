@@ -53,13 +53,10 @@ const createMovie = async (req, res) => {
 };
 
 const updateMovie = (req, res) => {
-  const movieIdParam = req.params.id;
-
-  if (!ObjectId.isValid(movieIdParam)) {
-    return res.status(400).json({ message: 'You need to provide a valid movie id.' });
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid movies id to find a movies.');
   }
-
-  const movieId = new ObjectId(movieIdParam);
+  const movieId = new ObjectId(req.params.id);
 
   const updateData = {
     title: req.body.title,
