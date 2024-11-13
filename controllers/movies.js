@@ -56,7 +56,7 @@ const updateMovie = (req, res) => {
   const movieIdParam = req.params.id;
 
   if (!ObjectId.isValid(movieIdParam)) {
-    return res.status(400).json({ message: 'Debe proporcionar un ID de película válido.' });
+    return res.status(400).json({ message: 'You need to provide a valid movie id' });
   }
 
   const movieId = new ObjectId(movieIdParam);
