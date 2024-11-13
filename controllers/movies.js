@@ -52,31 +52,43 @@ const createMovie = async (req, res) => {
   }
 };
 
-const updateMovie = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid movie id to update a movie.');
+const updateMovie = (req, res) => {
+  const movieIdParam = req.params.id;
+
+  if (!ObjectId.isValid(movieIdParam)) {
+    return res.status(400).json({ message: 'Debe proporcionar un ID de película válido.' });
   }
-  const movieId = new ObjectId(req.params.id);
-  // be aware of updateOne if you only want to update specific fields
-  const movie = {
+
+  const movieId = new ObjectId(movieIdParam);
+
+  const updateData = {
     title: req.body.title,
     description: req.body.description,
     release_date: req.body.release_date,
     movie_gender_id: req.body.movie_gender_id,
     director_id: req.body.director_id,
-    total_minutes: req.body.total_minutes    
+    total_minutes: req.body.total_minutes,
   };
-  const response = await mongodb
+
+  Object.keys(updateData).forEach(
+    (key) => updateData[key] === undefined && delete updateData[key]
+  );
+
+  mongodb
     .getDb()
     .db()
     .collection('movies')
-    .replaceOne({ _id: movieId }, movie);
-  console.log(response);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the movie.');
-  }
+    .updateOne({ _id: movieId }, { $set: updateData }, (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: 'Error al actualizar la película.' });
+      }
+
+      if (result.matchedCount === 0) {
+        return res.status(404).json({ message: 'Película no encontrada.' });
+      }
+
+      res.status(200).json({ message: 'Película actualizada exitosamente.' });
+    });
 };
 
 const deleteMovie = async (req, res) => {
