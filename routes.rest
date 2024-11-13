@@ -5,7 +5,7 @@ GET http://localhost:8080/movies
 GET http://localhost:8080/movie_genders
 
 ### Get movie by id
-GET http://localhost:8080/movies/673377093dedfd839ef6cbf7
+GET http://localhost:8080/movies/67342ee5133ef0f9ffac4129
 ### Get movie gender by id
 GET http://localhost:8080/movie_genders/673377343dedfd839ef7861c
 
@@ -32,7 +32,7 @@ content-type: application/json
 }
 
 ### PUT movie
-PUT http://localhost:8080/movies/673377093dedfd839ef6cbf7 HTTP/1.1
+PUT http://localhost:8080/movies/67342ee5133ef0f9ffac4129 HTTP/1.1
 content-type: application/json
 
 {
@@ -54,7 +54,7 @@ content-type: application/json
 }
 
 ### DELETE movie
-DELETE http://localhost:8080/movies/673377093dedfd839ef6cbf7 HTTP/1.1
+DELETE http://localhost:8080/movies/67342ee5133ef0f9ffac4129 HTTP/1.1
 ### DELETE movie gender
 DELETE http://localhost:8080/movie_genders/673377343dedfd839ef7861c HTTP/1.1
 
@@ -65,8 +65,8 @@ GET https://cse-341-project2-obur.onrender.com/movies
 GET https://cse-341-project2-obur.onrender.com/movie_genders
 
 ### Get movie by id
-GET https://cse-341-project2-obur.onrender.com/movies/673377093dedfd839ef6cbf7
-### Get movie by id
+GET https://cse-341-project2-obur.onrender.com/movies/67342ee5133ef0f9ffac4129
+### Get movie gender by id
 GET https://cse-341-project2-obur.onrender.com/movie_genders/673377343dedfd839ef7861c
 
 ### Create movie
@@ -92,8 +92,8 @@ content-type: application/json
 }
 
 
-### PUT contact
-PUT https://cse-341-project2-obur.onrender.com/movies/673377093dedfd839ef6cbf7 HTTP/1.1
+### PUT movie
+PUT https://cse-341-project2-obur.onrender.com/movies/67342ee5133ef0f9ffac4129 HTTP/1.1
 content-type: application/json
 
 {
@@ -115,6 +115,6 @@ content-type: application/json
 }
 
 ### DELETE movie
-DELETE https://cse-341-project2-obur.onrender.com/movies/673377093dedfd839ef6cbf7 HTTP/1.1
+DELETE https://cse-341-project2-obur.onrender.com/movies/67342ee5133ef0f9ffac4129 HTTP/1.1
 ### DELETE movie gender
 DELETE https://cse-341-project2-obur.onrender.com/movie_genders/673377343dedfd839ef7861c HTTP/1.1
