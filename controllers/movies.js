@@ -42,7 +42,7 @@ const createMovie = async (req, res) => {
     release_date: req.body.release_date,
     movie_gender_id: req.body.movie_gender_id,
     director_id: req.body.director_id,
-    total_minutes: req.body.total_minutes    
+    total_minutes: req.body.total_minutes
   };
   const response = await mongodb.getDb().db().collection('movies').insertOne(movie);
   if (response.acknowledged) {
@@ -64,12 +64,10 @@ const updateMovie = (req, res) => {
     release_date: req.body.release_date,
     movie_gender_id: req.body.movie_gender_id,
     director_id: req.body.director_id,
-    total_minutes: req.body.total_minutes,
+    total_minutes: req.body.total_minutes
   };
 
-  Object.keys(updateData).forEach(
-    (key) => updateData[key] === undefined && delete updateData[key]
-  );
+  Object.keys(updateData).forEach((key) => updateData[key] === undefined && delete updateData[key]);
 
   mongodb
     .getDb()
@@ -77,14 +75,14 @@ const updateMovie = (req, res) => {
     .collection('movies')
     .updateOne({ _id: movieId }, { $set: updateData }, (err, result) => {
       if (err) {
-        return res.status(500).json({ message: 'Error al actualizar la película.' });
+        return res.status(500).json({ message: 'Error trying to update movie' });
       }
 
       if (result.matchedCount === 0) {
-        return res.status(404).json({ message: 'Película no encontrada.' });
+        return res.status(404).json({ message: 'Movie not found.' });
       }
 
-      res.status(200).json({ message: 'Película actualizada exitosamente.' });
+      res.status(200).json({ message: 'Movie successfully updated.' });
     });
 };
 
