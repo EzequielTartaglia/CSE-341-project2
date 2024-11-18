@@ -10,10 +10,12 @@ const app = express();
 // Set up the session middleware
 app.use(
   session({
-    secret: 'your-secret-key', // Asegúrate de cambiar esto por una clave secreta segura
+    secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Cambiar a `secure: true` si usas https
+    cookie: {
+      secure: process.env.NODE_ENV === 'production'
+    }
   })
 );
 
