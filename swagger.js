@@ -1,7 +1,7 @@
 const swaggerAutogen = require('swagger-autogen')();
 
 const isProduction = process.env.NODE_ENV === 'production';
-const host = isProduction ? 'cse-341-project2-obur.onrender.com' : 'localhost:8083';
+const host = isProduction ? 'cse-341-project2-obur.onrender.com' : 'localhost:3000';
 
 const doc = {
   info: {
