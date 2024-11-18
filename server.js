@@ -28,23 +28,22 @@ passport.use(
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: process.env.GITHUB_CALLBACK_URL,
-      scope: ['user:email'] // Permite obtener el email del usuario
+      scope: ['user:email'] 
     },
     (accessToken, refreshToken, profile, done) => {
-      // Usualmente, almacenarías el perfil del usuario en la base de datos aquí
-      return done(null, profile); // Serializa el perfil en la sesión
+      return done(null, profile); 
     }
   )
 );
 
 // Serialize user into session
 passport.serializeUser((user, done) => {
-  done(null, user); // Guardar todo el perfil de usuario en la sesión
+  done(null, user); 
 });
 
 // Deserialize user from session
 passport.deserializeUser((user, done) => {
-  done(null, user); // Recuperar el usuario completo desde la sesión
+  done(null, user); 
 });
 
 // GitHub OAuth routes
@@ -55,7 +54,6 @@ app.get(
   '/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   (req, res) => {
-    // Si la autenticación es exitosa, redirige al usuario a '/api-docs'
     if (req.user && req.user.emails && req.user.emails.length > 0) {
       res.redirect('/api-docs');
     } else {
